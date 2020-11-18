@@ -1,0 +1,313 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="POC_Use_Case_1_Excel_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="824,1304.8" sap2010:WorkflowViewState.IdRef="POC_Use_Case_1_Excel_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="POC_Use_Case_1_Excel_Automation" sap:VirtualizedContainerService.HintSize="416.8,1140" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT2" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT3" />
+      <Variable x:TypeArguments="x:String" Name="vID" />
+      <Variable x:TypeArguments="x:Int32" Name="vRowIndexDT1" />
+      <Variable x:TypeArguments="x:Int32" Name="vRowIndexDT2" />
+      <Variable x:TypeArguments="x:Int32" Name="vRowIndexDT3" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Reading the data from 3 excel files and storing it in data tables for further processing." DisplayName="Read Data From Excel" sap:VirtualizedContainerService.HintSize="375.2,144.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DT1]" DisplayName="Read Range For File 1" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="File 1.xlsx">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DT2]" DisplayName="Read Range For File 2" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="File 2.xlsx">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DT3]" DisplayName="Read Range For File 3" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="File 3.xlsx">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Adding additional columns to master data table DT1" DisplayName="Adding Columns" sap:VirtualizedContainerService.HintSize="375.2,112.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Degree" DataTable="[DT1]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Branch" DataTable="[DT1]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Year" DataTable="[DT1]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
+      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Father's Name" DataTable="[DT1]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_4" />
+      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Father's Contact Number" DataTable="[DT1]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_5" />
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Here we filter the data from other two files based on ID present in first master file and then store the data in final data table." DisplayName="Filtering Data Based On Master File" sap:VirtualizedContainerService.HintSize="375.2,160.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="353.6,625.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,476.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap2010:Annotation.AnnotationText="storing ID from master sheet in variable ID" sap:VirtualizedContainerService.HintSize="262.4,104" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[vID]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[row.Item("ID").ToString]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT1]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="ID" LookupValue="[vID]" RowIndex="[vRowIndexDT1]" />
+              <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT2]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="ID" LookupValue="[vID]" RowIndex="[vRowIndexDT2]" />
+              <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT3]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="LookupDataTable_3" LookupColumnName="ID" LookupValue="[vID]" RowIndex="[vRowIndexDT3]" />
+              <If Condition="[vRowIndexDT2&lt;&gt;-1 And vRowIndexDT3&lt;&gt;-1]" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Combining Data" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence sap2010:Annotation.AnnotationText="assigning the data from file 2 to master sheet" DisplayName="Adding Data From File 2" sap:VirtualizedContainerService.HintSize="200,112.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:Object">[DT1.Rows(vRowIndexDT1)("Degree")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:Object">[DT2.Rows(vRowIndexDT2)("Degree")]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:Object">[DT1.Rows(vRowIndexDT1)("Branch")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:Object">[DT2.Rows(vRowIndexDT2)("Branch")]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:Object">[DT1.Rows(vRowIndexDT1)("Year")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:Object">[DT2.Rows(vRowIndexDT2)("Year")]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                    <Sequence sap2010:Annotation.AnnotationText="assigning the data from file 3 to master sheet" DisplayName="Adding Data From File 3" sap:VirtualizedContainerService.HintSize="200,112.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:Object">[DT1.Rows(vRowIndexDT1)("Father's Name")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:Object">[DT3.Rows(vRowIndexDT3)("Father's Name")]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:Object">[DT1.Rows(vRowIndexDT1)("Father's Contact Number")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:Object">[DT3.Rows(vRowIndexDT3)("Father's Contact Number")]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Object">[row("ID")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Object">["Not Present"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:Continue sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Continue_2" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Here we create a new final excel file with all ther aggregated data" DisplayName="Final Output" sap:VirtualizedContainerService.HintSize="375.2,508.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:WriteRange AddHeaders="True" DataTable="[DT1]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Output2" StartingCell="A1" WorkbookPath="Output.xlsx" />
+      <ui:FilterDataTable DataTable="[DT1]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[DT1]" SelectColumnsMode="Keep">
+        <ui:FilterDataTable.Filters>
+          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+            <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+              <ui:FilterOperationArgument.Column>
+                <InArgument x:TypeArguments="x:String">["ID"]</InArgument>
+              </ui:FilterOperationArgument.Column>
+              <ui:FilterOperationArgument.Operand>
+                <InArgument x:TypeArguments="x:String">["Not Present"]</InArgument>
+              </ui:FilterOperationArgument.Operand>
+            </ui:FilterOperationArgument>
+          </scg:List>
+        </ui:FilterDataTable.Filters>
+        <ui:FilterDataTable.SelectColumns>
+          <scg:List x:TypeArguments="InArgument" Capacity="4">
+            <x:Null />
+          </scg:List>
+        </ui:FilterDataTable.SelectColumns>
+      </ui:FilterDataTable>
+      <ui:WriteRange AddHeaders="True" DataTable="[DT1]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Output" StartingCell="A1" WorkbookPath="Output.xlsx" />
+    </Sequence>
+  </Sequence>
+</Activity>
